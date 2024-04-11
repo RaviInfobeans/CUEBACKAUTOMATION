@@ -28,12 +28,13 @@ class Friends{
         await this.filter.click()
         await expect.soft(this.allFriends).toBeVisible();
         await expect.soft(this.publicFilter).toBeVisible();
-        await this.allFriends.click();
+        // await this.allFriends.click();
         await this.applyCTA.click();
         await this.page.waitForTimeout(3000);
         await this.friendsMemory.click();
         await this.commentBox.click();
         await this.comment.fill('Comment during smoke testing! Memory is visible to friends.');
+        await this.page.waitForTimeout(5000);
         await this.postComment.click();
         await expect.soft(this.validateComment).toBeVisible();
         await this.backCTA.click();

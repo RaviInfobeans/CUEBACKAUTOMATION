@@ -5,7 +5,7 @@ const { timeout } = require('../playwright.config')
 class EditPage{
     constructor(page){
         this.page = page
-        this.EditPage = page.getByRole('link', { name: 'Edit' })
+        this.EditPage = page.locator("a[class='Navbar__NavItem-sc-bpaubx-9 ewPMTf'] p[class='typography__Body-sc-1rnknoa-5 cTmoDC']")
         this.allMemories = page.getByText('All memories')
         this.publishMemories = page.locator('div').filter({ hasText: /^Published$/ })
         this.draftMemories = page.getByText('Drafts')

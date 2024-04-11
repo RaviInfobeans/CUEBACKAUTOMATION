@@ -9,7 +9,7 @@ class PublicURL{
         
     }
     async goTo(){
-        await this.page.goto("https://app-qa.mystoriesmatter.com/admin/approve-memories");
+        await this.page.goto("https://www.mystoriesmatter.com/admin/approve-memories");
     }
     
     async verification(){
@@ -20,7 +20,7 @@ class PublicURL{
 
     async HomePage(){
         await this.page.waitForTimeout(3000); 
-        await this.page.goto("https://app-qa.mystoriesmatter.com/memories/recent");
+        await this.page.goto("https://www.mystoriesmatter.com/memories/recent");
     }
 
 

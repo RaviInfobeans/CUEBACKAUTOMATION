@@ -17,7 +17,7 @@ test.describe.serial("Smoke Testing", () => {
     test("Login", async () => {
         const loginPage = poManager.getLoginPage();
         await loginPage.goTo();
-        await loginPage.Login('ravi701@mailinator.com', 'Rr@778998445665');
+        await loginPage.Login('ravi701@mailinator.com', 'Rr@445665778998');
     });
 
     // Memory from Timeline

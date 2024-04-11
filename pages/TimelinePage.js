@@ -6,7 +6,7 @@ class TimelinePage{
     constructor(page)
     {
         this.page = page
-        this.addMemory = page.locator(".Column__LineBorder-sc-662pwx-4.cErZwj").last()
+        this.addMemory = page.locator(".Column__LineBorder-sc-662pwx-4").last()
         this.titleField = page.locator("#memory-title")
         this.editorField = page.locator(".tiptap.ProseMirror")
         this.publishCTA = page.locator("#msm-publish-button")
@@ -35,6 +35,7 @@ class TimelinePage{
         await this.TimelineCTA.click();         //Clicking on Timeline Tab from Recent Page.
         await this.TimelineOption.click();      //Clicking on Timeline option to go to Timeline page.
         await expect.soft(this.page).toHaveTitle("Timeline | My Stories Matter");       //Validating user is guided to Timeline page.
+        await this.page.waitForTimeout(5000);
         await this.Cue.click();                 //Clicking on last Cue.
         await this.NewCTA.click();              //Clicking on NEW CTA on CUE popup.
         await this.CuePrompt.click();           //Clicking on CUE prompt.

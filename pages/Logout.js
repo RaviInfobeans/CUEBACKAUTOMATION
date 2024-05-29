@@ -5,8 +5,10 @@ class Logout{
 
     }
     async Logout(){
+        // await this.page.waitForTimeout(5000);
         await this.navbar.click();                  //Clicking on Navbar.
         await this.LogoutCTA.click();               //Clicking on Logout CTA.
     }
 }
-module.exports = {Logout}
+
+module.exports = {Logout};

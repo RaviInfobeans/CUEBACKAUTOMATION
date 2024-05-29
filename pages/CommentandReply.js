@@ -3,6 +3,8 @@ import { expect } from '@playwright/test';
 class CommentandReply{
     constructor(page){
         this.page = page
+        this.timeline = page.locator("button[placeholder='Timeline']")
+        this.recent = page.locator(".styled__StyledViewport-sc-vkrwzg-19")
         this.firstMemory = page.locator("div[data-index='0']")
         this.commentBox = page.locator('div').filter({ hasText: /^Post comment$/ }).nth(1)
         this.commentType = page.getByPlaceholder('What are your thoughts on')
@@ -12,10 +14,12 @@ class CommentandReply{
         this.replyBox = page.getByPlaceholder('What would you like to reply?')
         this.replyCTA = page.locator("div[class='styled__CommentButtonContainer-sc-fb47n7-6 eJqcgf'] span[class='typography__Subhead-sc-1rnknoa-9 lelRsi']")
         this.userReply = page.getByText('Replying to test comment while performing smoke testing!')
-        this.backCTA = page.locator(".styled__StyledButton-sc-1edb4g-3.dfOfuL")
+        this.backCTA = page.getByRole('button', { name: 'Back' })
 
     }
     async Comment(){
+        await this.timeline.click();
+        await this.recent.click();
         await this.firstMemory.click();                     //Clicking on first memory on recent tab.
         await this.page.waitForSelector("textarea[placeholder='What are your thoughts on this memory?']", { timeout: 5000 });
         await this.commentBox.click();                      //Clicking on comment box.

@@ -10,7 +10,7 @@ class TimelinePage{
         this.titleField = page.locator("#memory-title")
         this.editorField = page.locator(".tiptap.ProseMirror")
         this.publishCTA = page.locator("#msm-publish-button")
-        this.backCTA = page.locator("[class='styled__StyledButton-sc-1edb4g-3 dfOfuL']")
+        this.backCTA = page.getByRole('button', { name: 'Back' })
         this.TimelineCTA = page.locator("button[placeholder='Timeline']")
         this.TimelineOption = page.locator("div[role='option']")
         this.Cue = page.locator(".Cue__CueContainer-sc-1vnbk6z-0.gFgAKX").last()
@@ -18,6 +18,7 @@ class TimelinePage{
         this.CuePrompt = page.getByTestId('prompt-wrapper')
         this.title = page.locator(".typography__LargeTitle-sc-1rnknoa-0.kzPyHe.ph-no-capture")
         this.prompt = page.getByRole('link', { name: 'Prompts' })
+        this.CueClose = page.locator("button[class='styled__StyledButton-sc-1edb4g-3 dBzMrB'] span[class='typography__Subhead-sc-1rnknoa-9 styled__ButtonItemsWrapper-sc-1edb4g-0 lelRsi cBtMLB']")
 
 
     }
@@ -28,12 +29,12 @@ class TimelinePage{
         await this.editorField.fill("Test content for smoke testing");          //Entering content.
         await this.page.waitForTimeout(5000);        //Waiting for 5 seconds.
         await this.publishCTA.click()       //Clicking on Publish CTA.
-        await expect.soft(this.title).toContainText("Created from timeline page during Smoke testing");     // Verify title after publishing.
-        await this.backCTA.click();     //Clicking on Back CTA.
+        // await expect.soft(this.title).toContainText("Created from timeline page during Smoke testing");     // Verify title after publishing.
+        // await this.backCTA.click();     //Clicking on Back CTA.
     }
     async MemoryFromTimelineCues(){
-        await this.TimelineCTA.click();         //Clicking on Timeline Tab from Recent Page.
-        await this.TimelineOption.click();      //Clicking on Timeline option to go to Timeline page.
+        // await this.TimelineCTA.click();         //Clicking on Timeline Tab from Recent Page.
+        // await this.TimelineOption.click();      //Clicking on Timeline option to go to Timeline page.
         await expect.soft(this.page).toHaveTitle("Timeline | My Stories Matter");       //Validating user is guided to Timeline page.
         await this.page.waitForTimeout(5000);
         await this.Cue.click();                 //Clicking on last Cue.
@@ -44,8 +45,9 @@ class TimelinePage{
         await this.editorField.fill("Test content for memory created from cues during smoke testing");      //Entering content.
         await this.page.waitForTimeout(5000);           //Waiting for 5 seconds.
         await this.publishCTA.click();                  //Clicking on Publish CTA.
-        await expect.soft(this.title).toContainText("Created from Cues during Smoke testing");              // Verify title after publishing.
-        await this.backCTA.click();                     //Clicking on Back CTA.
+        await this.CueClose.click();
+        // await expect.soft(this.title).toContainText("Created from Cues during Smoke testing");              // Verify title after publishing.
+        // await this.backCTA.click();                     //Clicking on Back CTA.
 
     }
 

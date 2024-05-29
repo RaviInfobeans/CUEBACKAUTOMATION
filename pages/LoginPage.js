@@ -3,7 +3,7 @@ class LoginPage{
     constructor(page)
     {
         this.page = page
-        this.loginCTA = page.getByRole('button', { name: 'Log in' });
+        this.loginCTA = page.locator("button[class='styled__StyledButton-sc-1edb4g-3 dhLfAr']");
         this.emailField = page.getByPlaceholder("Enter your email...");
         this.continue = page.getByRole('button', { name: 'Continue', exact: true });
         this.passwordField = page.getByPlaceholder("Enter your password...");

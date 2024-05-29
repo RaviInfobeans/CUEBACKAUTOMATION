@@ -21,6 +21,7 @@ class PublicURL{
     async HomePage(){
         await this.page.waitForTimeout(3000); 
         await this.page.goto("https://www.mystoriesmatter.com/memories/recent");
+        await this.page.waitForTimeout(3000)
     }
 
 

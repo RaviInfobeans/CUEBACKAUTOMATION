@@ -17,7 +17,7 @@ class Signup{
         this.confirmPassword = page.locator("input[name='confirmPassword']");
         this.signupCTA = page.getByTestId('SignUpButton');
         this.confirmation = page.locator(".typography__Title1-sc-1rnknoa-1.styled__StyledTitle1-sc-y7fp0t-38.kdjkVP.bYLCLk");
-        this.loginButton = page.locator("[type$='submit']");
+        this.loginButton = page.locator("[type$='submit']")
     }
 
     async SignupProcess(){
